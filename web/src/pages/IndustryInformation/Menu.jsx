@@ -2,11 +2,7 @@
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
 import { useIndustryInformation } from "./IndustryInformation";
-import { SUBDOMAIN_COMPANIES } from "../../assets/companies";
 import CustomizedAccordions from "../../components/CustomizedAccordions";
 
 const styles = {
@@ -20,6 +16,7 @@ const styles = {
     font-weight: 700;
     font-family: "Outfit", sans-serif;
     color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     &:hover {
       color: #38374f;
       cursor: pointer;
@@ -27,14 +24,19 @@ const styles = {
     }
   `,
   panel: css`
-    min-height: 92vh;
+    height: 100%;
     background-color: #e0dbc1;
   `,
 };
 
 export const Menu = () => {
   const industryInformation = useIndustryInformation();
-
+  const reset = () => {
+    industryInformation.setInOverview(false);
+    industryInformation.setInSearch(false);
+    industryInformation.setSelectedCompany("");
+    industryInformation.setSelectedSubdomain("");
+  };
   return (
     <div css={styles.panel}>
       <div
@@ -63,8 +65,9 @@ export const Menu = () => {
             industryInformation.setInSearch(false);
             industryInformation.setSelectedCompany("");
             industryInformation.setSelectedSubdomain("");
+            industryInformation.setSection("");
           }}>
-          Overview
+          Industry Information
         </div>
         <div
           css={styles.overview}
@@ -73,15 +76,69 @@ export const Menu = () => {
             industryInformation.setInSearch(true);
             industryInformation.setSelectedCompany("");
             industryInformation.setSelectedSubdomain("");
+            industryInformation.setSection("");
           }}>
           Search
         </div>
+        {/* <div css={styles.overview}> */}
+        <CustomizedAccordions
+          content={{
+            Profitability: [
+              "Net Profit Margin",
+              "Gross Profit Margin",
+              "Operating Profit Margin",
+              "Return On Assets",
+            ],
+          }}
+          handleClick={(item) => {
+            reset();
+            industryInformation.setSection(item);
+          }}
+        />
+        {/* </div> */}
+
+        {/* <div css={styles.overview}> */}
+        <CustomizedAccordions
+          content={{
+            "Operating Efficiency": [
+              "Total Assets Turnover",
+              "Working Capital",
+            ],
+          }}
+          handleClick={(item) => {
+            reset();
+            industryInformation.setSection(item);
+          }}
+        />
+        {/* </div> */}
+        {/* <div css={styles.overview}> */}
+        <CustomizedAccordions
+          content={{
+            "Liquidity Ratio": ["Current Ratio", "Quick Ratio", "Cash Ratio"],
+          }}
+          handleClick={(item) => {
+            reset();
+
+            industryInformation.setSection(item);
+          }}
+        />
+        {/* </div> */}
+        {/* <div css={styles.overview}> */}
+        <CustomizedAccordions
+          content={{
+            "Solvency Ratio": [
+              "Financial Leverage",
+              "Debt to Total Assets Ratio",
+            ],
+          }}
+          handleClick={(item) => {
+            reset();
+
+            industryInformation.setSection(item);
+          }}
+        />
+        {/* </div> */}
       </div>
-      {/* <CustomizedAccordions
-        content={{
-          Subdomains: Object.keys(SUBDOMAIN_COMPANIES),
-        }}
-      /> */}
     </div>
   );
 };

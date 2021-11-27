@@ -6,12 +6,11 @@ import { Fragment } from "react";
 const styles = {
   container: css`
     display: flex;
-    max-height: 86vh;
+    height: 100vh;
   `,
   leftPanel: css`
     min-width: 20%;
     max-width: 20%;
-    min-height: 88%;
     overflow: scroll;
 
     &::-webkit-scrollbar {
@@ -21,7 +20,6 @@ const styles = {
   rightPanel: css`
     min-width: 76%;
     max-width: 76%;
-    min-height: 80%;
     background-color: #f5f5f5;
     padding: 50px;
     overflow: scroll;

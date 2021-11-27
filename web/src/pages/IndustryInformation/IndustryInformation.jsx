@@ -30,33 +30,41 @@ export const IndustryInformation = () => {
   const [inSearch, setInSearch] = useState(false);
   const [isSearchCompany, setIsSearchCompany] = useState(true);
   const [searchString, setSearchString] = useState("");
+  const [section, setSection] = useState("");
 
   return (
-    <industryInformationContext.Provider
-      value={{
-        currentYear,
-        setCurrentYear,
-        inOverview,
-        setInOverview,
-        inSearch,
-        setInSearch,
-        selectedSubdomain,
-        setSelectedSubdomain,
-        selectedCompany,
-        setSelectedCompany,
-        isSearchCompany,
-        setIsSearchCompany,
-        searchString,
-        setSearchString,
-      }}>
-      <TwoPartLayout
-        leftRender={() => {
-          return <Menu />;
-        }}
-        rightRender={() => {
-          return <Content />;
-        }}
-      />
-    </industryInformationContext.Provider>
+    <div
+      css={css`
+        min-height: 100vh;
+      `}>
+      <industryInformationContext.Provider
+        value={{
+          currentYear,
+          setCurrentYear,
+          inOverview,
+          setInOverview,
+          inSearch,
+          setInSearch,
+          selectedSubdomain,
+          setSelectedSubdomain,
+          selectedCompany,
+          setSelectedCompany,
+          isSearchCompany,
+          setIsSearchCompany,
+          searchString,
+          setSearchString,
+          section,
+          setSection,
+        }}>
+        <TwoPartLayout
+          leftRender={() => {
+            return <Menu />;
+          }}
+          rightRender={() => {
+            return <Content />;
+          }}
+        />
+      </industryInformationContext.Provider>
+    </div>
   );
 };

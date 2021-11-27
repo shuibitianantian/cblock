@@ -49,7 +49,7 @@ csv()
   });
 
 csv()
-  .fromFile(__dirname + "/data/2020_finance.csv")
+  .fromFile(__dirname + "/data/11_Fi_2020_basic.csv")
   .then((arr) => {
     financialData = arr;
   });
@@ -64,7 +64,7 @@ app.get("/getCompanySentence", (req, res) => {
   result["finantialData"] =
     financialData.filter((data) => {
       return data["cik"] === result.CIK;
-    })[0] || {};
+    }) || [];
   res.status(200).send(JSON.stringify(result));
 });
 

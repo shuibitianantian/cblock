@@ -4,7 +4,6 @@ import { css, jsx } from "@emotion/react";
 import { MainPage } from "./pages/MainPage";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { IndustryInformation } from "./pages/IndustryInformation/IndustryInformation";
-import { Evaluation } from "./pages/Evaluation/Evaluation";
 
 const styles = {
   header: css`
@@ -67,7 +66,7 @@ const styles = {
 function App() {
   return (
     <BrowserRouter>
-      <div className='App'>
+      <div css={styles.page}>
         <div css={styles.header}>
           <p css={styles.teamName}>C-Block</p>
           <div css={styles.navigation}>
@@ -76,9 +75,6 @@ function App() {
             </Link>
             <Link to='industry_information' className='nav'>
               <p>Industry Information</p>
-            </Link>
-            <Link to='evaluation' className='nav'>
-              <p>Evaluation</p>
             </Link>
           </div>
         </div>
@@ -89,7 +85,6 @@ function App() {
             path='/industry_information'
             element={<IndustryInformation />}
           />
-          <Route path='/evaluation' element={<Evaluation />} />
         </Routes>
         <div css={styles.footer}>Copyright Reserved by C-Block</div>
       </div>

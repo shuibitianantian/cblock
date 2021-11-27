@@ -9,7 +9,8 @@ import { Button } from "@mui/material";
 import { TickerChart } from "./TickerChart";
 
 const parseValue = (value) => {
-  if (value) {
+  console.log(value);
+  if (value && !isNaN(value)) {
     return parseFloat(value).toFixed(3);
   }
 
@@ -39,8 +40,8 @@ const styles = {
     border-radius: 10px;
     margin-bottom: 50px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
 
     h2 {
       text-transform: uppercase;
@@ -89,6 +90,14 @@ export const CompanyInformation = () => {
     setLabelsToSentences(lts);
   }, [companyMeasures]);
 
+  const financial2019 =
+    companyMeasures &&
+    companyMeasures.finantialData.filter((c) => c.fyear === "2019")[0];
+  const financial2020 =
+    companyMeasures &&
+    companyMeasures.finantialData.filter((c) => c.fyear === "2020")[0];
+
+  console.log(companyMeasures);
   return (
     <div>
       <h1 css={styles.name}>{selectedCompany}</h1>
@@ -133,82 +142,161 @@ export const CompanyInformation = () => {
       </div>
 
       <div css={styles.financialData}>
-        <div>
-          <h2>Profitability</h2>
-          <p>
-            ROA:{"     "}
-            {companyMeasures &&
-              parseValue(
-                companyMeasures.finantialData["2020 ROA(return on assets)"]
-              )}
-          </p>
-          <p>
-            Net Profit Margin:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["Net profit margin"])}
-          </p>
-          <p>
-            Gross Profit Margin:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["Gross profit margin"])}
-          </p>
-          <p>
-            Operating Profit Margin:{"     "}
-            {companyMeasures &&
-              parseValue(
-                companyMeasures.finantialData["Operating profit margin"]
-              )}
-          </p>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+          `}>
+          <h1>2019</h1>
+          <div
+            css={css`
+              display: flex;
+              justify-content: space-around;
+            `}>
+            <div>
+              <h2>Profitability</h2>
+              <p>
+                ROA:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["2020 ROA(return on assets)"])}
+              </p>
+              <p>
+                Net Profit Margin:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["Net profit margin"])}
+              </p>
+              <p>
+                Gross Profit Margin:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["Gross profit margin"])}
+              </p>
+              <p>
+                Operating Profit Margin:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["Operating profit margin"])}
+              </p>
+            </div>
+            <div>
+              <h2>Operating Efficiency</h2>
+              <p>
+                Asset Turnover:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["2020 Total assets turnover"])}
+              </p>
+              <p>
+                Working Capital:{"     "}
+                {financial2019 && parseValue(financial2019["working capital"])}
+              </p>
+            </div>
+            <div>
+              <h2>Liquidity Ratio</h2>
+              <p>
+                Current Ratio:{"     "}
+                {financial2019 && parseValue(financial2019["Current ratio"])}
+              </p>
+              <p>
+                Quick Ratio:{"     "}
+                {financial2019 && parseValue(financial2019["Quick ratio"])}
+              </p>
+              <p>
+                Cash Ratio:{"     "}
+                {financial2019 && parseValue(financial2019["Cash ratio"])}
+              </p>
+            </div>
+            <div>
+              <h2>Solvency Ratio</h2>
+              <p>
+                Financial Leverage:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["Financial leverage"])}
+              </p>
+              <p>
+                Debt to Assets Ratio:{"     "}
+                {financial2019 &&
+                  parseValue(financial2019["Debt to total assets ratio"])}
+              </p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h2>Operating Efficiency</h2>
-          <p>
-            Asset Turnover:{"     "}
-            {companyMeasures &&
-              parseValue(
-                companyMeasures.finantialData["2020 Total assets turnover"]
-              )}
-          </p>
-          <p>
-            Working Capital:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["working capital"])}
-          </p>
-        </div>
-        <div>
-          <h2>Liquidity Ratio</h2>
-          <p>
-            Current Ratio:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["Current ratio"])}
-          </p>
-          <p>
-            Quick Ratio:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["Quick ratio"])}
-          </p>
-          <p>
-            Cash Ratio:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["Cash ratio"])}
-          </p>
-        </div>
-        <div>
-          <h2>Solvency Ratio</h2>
-          <p>
-            Financial Leverage:{"     "}
-            {companyMeasures &&
-              parseValue(companyMeasures.finantialData["Financial leverage"])}
-          </p>
-          <p>
-            Debt to Assets Ratio:{"     "}
-            {companyMeasures &&
-              parseValue(
-                companyMeasures.finantialData["Debt to total assets ratio"]
-              )}
-          </p>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            align-items: space-between;
+          `}>
+          <h1>2020</h1>
+          <div
+            css={css`
+              display: flex;
+              justify-content: space-around;
+            `}>
+            <div>
+              <h2>Profitability</h2>
+              <p>
+                ROA:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["2020 ROA(return on assets)"])}
+              </p>
+              <p>
+                Net Profit Margin:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["Net profit margin"])}
+              </p>
+              <p>
+                Gross Profit Margin:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["Gross profit margin"])}
+              </p>
+              <p>
+                Operating Profit Margin:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["Operating profit margin"])}
+              </p>
+            </div>
+            <div>
+              <h2>Operating Efficiency</h2>
+              <p>
+                Asset Turnover:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["2020 Total assets turnover"])}
+              </p>
+              <p>
+                Working Capital:{"     "}
+                {financial2020 && parseValue(financial2020["working capital"])}
+              </p>
+            </div>
+            <div>
+              <h2>Liquidity Ratio</h2>
+              <p>
+                Current Ratio:{"     "}
+                {financial2020 && parseValue(financial2020["Current ratio"])}
+              </p>
+              <p>
+                Quick Ratio:{"     "}
+                {financial2020 && parseValue(financial2020["Quick ratio"])}
+              </p>
+              <p>
+                Cash Ratio:{"     "}
+                {financial2020 && parseValue(financial2020["Cash ratio"])}
+              </p>
+            </div>
+            <div>
+              <h2>Solvency Ratio</h2>
+              <p>
+                Financial Leverage:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["Financial leverage"])}
+              </p>
+              <p>
+                Debt to Assets Ratio:{"     "}
+                {financial2020 &&
+                  parseValue(financial2020["Debt to total assets ratio"])}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
       <div css={styles.profile}>
         {charts ? <TickerChart data={charts} /> : "Quote Not Available"}
       </div>
