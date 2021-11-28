@@ -87,7 +87,7 @@ const styles = {
     }
 
     div:nth-child(3) {
-      width: 60%;
+      width: 80%;
       font-size: 19px;
       text-align: justify;
       font-weight: 200;

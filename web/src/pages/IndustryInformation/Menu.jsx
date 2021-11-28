@@ -12,8 +12,8 @@ const styles = {
     padding: 0px 30px;
     width: 100%;
     height: 60px;
-    font-size: 26px;
-    font-weight: 700;
+    font-size: 24px;
+    // font-weight: 700;
     font-family: "Outfit", sans-serif;
     color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -46,18 +46,6 @@ export const Menu = () => {
           z-index: 10;
           background-color: #e0dbc1;
         `}>
-        {/* <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs
-            value={currentYear - 2019}
-            variant='fullWidth'
-            centered
-            onChange={(e, newValue) => {
-              setCurrentYear(newValue + 2019);
-            }}>
-            <Tab label='2019' />
-            <Tab label='2020' />
-          </Tabs>
-        </Box> */}
         <div
           css={styles.overview}
           onClick={() => {

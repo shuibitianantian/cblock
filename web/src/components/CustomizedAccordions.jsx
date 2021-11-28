@@ -29,8 +29,8 @@ const styles = {
     width: 100%;
     height: 60px;
     padding-left: 0px;
-    font-size: 26px;
-    font-weight: 700;
+    font-size: 24px;
+    // font-weight: 700;
     font-family: "Outfit", sans-serif;
     color: rgba(0, 0, 0, 0.5);
     background-color: #e0dbc1;
