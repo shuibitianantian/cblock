@@ -37,6 +37,7 @@ const styles = {
   `,
   description: css`
     margin-top: 30px;
+    margin-bottom: 30px;
     padding: 0px 30px;
     text-align: justify;
     font-family: Inter, sans-serif;
