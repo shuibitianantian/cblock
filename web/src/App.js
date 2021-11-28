@@ -74,7 +74,7 @@ function App() {
               <p>Project Description</p>
             </Link>
             <Link to='industry_information' className='nav'>
-              <p>Industry Information</p>
+              <p>Applications</p>
             </Link>
           </div>
         </div>
