@@ -33,6 +33,7 @@ const styles = {
     padding: 0px 30px;
     font-weight: 700;
     font-family: Inter, sans-serif;
+    text-align: center;
     color: #4a6287;
   `,
   description: css`
@@ -40,7 +41,7 @@ const styles = {
     margin-bottom: 30px;
     padding: 0px 30px;
     text-align: justify;
-    font-family: Inter, sans-serif;
+    // font-family: Inter, sans-serif;
     font-weight: 300;
   `,
 };

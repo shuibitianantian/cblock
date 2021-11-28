@@ -5,7 +5,7 @@ import { useIndustryInformation } from "./IndustryInformation";
 import React, { useEffect, useState } from "react";
 
 import { fetchChart, fetchProfile } from "../../api";
-import { Button } from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import { TickerChart } from "./TickerChart";
 
 const parseValue = (value) => {
@@ -36,7 +36,7 @@ const styles = {
     width: 100%;
     box-sizing: border-box;
     background-color: white;
-    padding: 20px 50px;
+    padding: 20px 50px 30px 50px;
     border-radius: 10px;
     margin-bottom: 50px;
     display: flex;
@@ -44,7 +44,11 @@ const styles = {
     flex-wrap: wrap;
 
     h2 {
+      text-align: center;
+    }
+    h3 {
       text-transform: uppercase;
+      color: #d1bf90;
     }
   `,
 };
@@ -97,7 +101,6 @@ export const CompanyInformation = () => {
     companyMeasures &&
     companyMeasures.finantialData.filter((c) => c.fyear === "2020")[0];
 
-  console.log(companyMeasures);
   return (
     <div>
       <h1 css={styles.name}>{selectedCompany}</h1>
@@ -146,15 +149,16 @@ export const CompanyInformation = () => {
           css={css`
             display: flex;
             flex-direction: column;
+            margin-bottom: 30px;
           `}>
-          <h1>2019</h1>
+          <h2>2019 Financial Indicators</h2>
           <div
             css={css`
               display: flex;
               justify-content: space-around;
             `}>
             <div>
-              <h2>Profitability</h2>
+              <h3>Profitability</h3>
               <p>
                 ROA:{"     "}
                 {financial2019 &&
@@ -177,7 +181,7 @@ export const CompanyInformation = () => {
               </p>
             </div>
             <div>
-              <h2>Operating Efficiency</h2>
+              <h3>Operating Efficiency</h3>
               <p>
                 Asset Turnover:{"     "}
                 {financial2019 &&
@@ -189,7 +193,7 @@ export const CompanyInformation = () => {
               </p>
             </div>
             <div>
-              <h2>Liquidity Ratio</h2>
+              <h3>Liquidity Ratio</h3>
               <p>
                 Current Ratio:{"     "}
                 {financial2019 && parseValue(financial2019["Current ratio"])}
@@ -204,7 +208,7 @@ export const CompanyInformation = () => {
               </p>
             </div>
             <div>
-              <h2>Solvency Ratio</h2>
+              <h3>Solvency Ratio</h3>
               <p>
                 Financial Leverage:{"     "}
                 {financial2019 &&
@@ -218,20 +222,22 @@ export const CompanyInformation = () => {
             </div>
           </div>
         </div>
+        <Divider />
         <div
           css={css`
             display: flex;
             flex-direction: column;
             align-items: space-between;
+            padding-top: 20px;
           `}>
-          <h1>2020</h1>
+          <h2>2020 Financial Indicators</h2>
           <div
             css={css`
               display: flex;
               justify-content: space-around;
             `}>
             <div>
-              <h2>Profitability</h2>
+              <h3>Profitability</h3>
               <p>
                 ROA:{"     "}
                 {financial2020 &&
@@ -254,7 +260,7 @@ export const CompanyInformation = () => {
               </p>
             </div>
             <div>
-              <h2>Operating Efficiency</h2>
+              <h3>Operating Efficiency</h3>
               <p>
                 Asset Turnover:{"     "}
                 {financial2020 &&
@@ -266,7 +272,7 @@ export const CompanyInformation = () => {
               </p>
             </div>
             <div>
-              <h2>Liquidity Ratio</h2>
+              <h3>Liquidity Ratio</h3>
               <p>
                 Current Ratio:{"     "}
                 {financial2020 && parseValue(financial2020["Current ratio"])}
@@ -281,7 +287,7 @@ export const CompanyInformation = () => {
               </p>
             </div>
             <div>
-              <h2>Solvency Ratio</h2>
+              <h3>Solvency Ratio</h3>
               <p>
                 Financial Leverage:{"     "}
                 {financial2020 &&

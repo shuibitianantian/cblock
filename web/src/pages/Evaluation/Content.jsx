@@ -31,32 +31,29 @@ const styles = {
     }
   `,
 };
-const mapping = {
-  "gross profit margin": [
-    "profitability-gross1.png",
-    "profitability-gross2.png",
-    "profitability-gross3.png",
-  ],
-};
+
 export const Content = () => {
   const evaluationContext = useEvaluation();
 
-  console.log(evaluationContext.section);
-  const imgs = mapping[evaluationContext.section.toLowerCase()];
-
   return (
     <div css={styles.container}>
-      {imgs
-        ? imgs.map((i) => {
-            return (
-              <div css={styles.imageContainer} key={i}>
-                <ImageModal src={i}>
-                  <img src={i} alt='measure' />
-                </ImageModal>
-              </div>
-            );
-          })
-        : "Not Content"}
+      <div css={styles.imageContainer}>
+        <ImageModal
+          src={`measures_parameters/${evaluationContext.section.jpg}`}>
+          <img
+            src={`measures_parameters/${evaluationContext.section.jpg}`}
+            alt='measure'
+          />
+        </ImageModal>
+      </div>
+      <div css={styles.imageContainer}>
+        <ImageModal src={`train_history/${evaluationContext.section.jpg}`}>
+          <img
+            src={`train_history/${evaluationContext.section.jpg}`}
+            alt='measure'
+          />
+        </ImageModal>
+      </div>
     </div>
   );
 };

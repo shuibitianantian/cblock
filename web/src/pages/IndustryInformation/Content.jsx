@@ -3,7 +3,7 @@
 import { css, jsx } from "@emotion/react";
 import { SubdomainInformation } from "./SudomainInformation";
 import { CompanyInformation } from "./CompanyInformation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useIndustryInformation } from "./IndustryInformation";
 import { Overview } from "./Overview";
 import { Search } from "./Search";
@@ -41,7 +41,7 @@ const styles = {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    padding: 20px;
     width: 40%;
 
     background-color: white;
@@ -60,10 +60,24 @@ const styles = {
 
 export const Content = () => {
   const industryInformation = useIndustryInformation();
-  const imgs =
-    industryInformation.section &&
-    mapping[industryInformation.section.toLowerCase()];
 
+  console.log(industryInformation.section);
+  const [fi, setFi] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async function () {
+      const response = await fetch(
+        `http://localhost:3006/financialIndicators?fi=${industryInformation.section.toLowerCase()}`
+      );
+      setFi(await response.json());
+    };
+
+    if (industryInformation.section) {
+      fetchData();
+    }
+  }, [industryInformation.section]);
+
+  console.log(fi);
   const fiDescription =
     industryInformation.section &&
     FI_MAPPING[industryInformation.section.toLowerCase()];
@@ -76,22 +90,67 @@ export const Content = () => {
     } else if (industryInformation.section) {
       return (
         <>
+          <h1
+            css={css`
+              text-align: center;
+              font-size: 50px;
+              color: #c5a872;
+            `}>
+            {industryInformation.section}
+          </h1>
+
           <div css={styles.profile}>
-            <h1>{industryInformation.section}</h1>
             <p>{fiDescription}</p>
           </div>
+          <div css={styles.profile}>
+            <div
+              css={css`
+                display: flex;
+                justify-content: space-around;
+              `}>
+              <div>
+                <h2>Top 10 Positive Measures</h2>
+                {fi &&
+                  fi.top10.map((item, idx) => {
+                    return (
+                      <p key={idx}>
+                        {item[0]}: {parseFloat(item[1]).toFixed(3)}
+                      </p>
+                    );
+                  })}
+              </div>
+              <div>
+                <h2>Top 10 Negative Measures</h2>
+                {fi &&
+                  fi.end10.map((item, idx) => {
+                    return (
+                      <p key={idx}>
+                        {item[0]}: {parseFloat(item[1]).toFixed(3)}
+                      </p>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
           <div css={styles.container}>
-            {imgs
-              ? imgs.map((i) => {
-                  return (
-                    <div css={styles.imageContainer} key={i}>
-                      <ImageModal src={i}>
-                        <img src={i} alt='measure' />
-                      </ImageModal>
-                    </div>
-                  );
-                })
-              : "Not Content"}
+            <div css={styles.imageContainer}>
+              <ImageModal
+                src={`measures_parameters/${industryInformation.section}.jpg`}>
+                <img
+                  src={`measures_parameters/${industryInformation.section}.jpg`}
+                  alt='measure'
+                />
+              </ImageModal>
+            </div>
+            <div css={styles.imageContainer}>
+              <ImageModal
+                src={`train_history/${industryInformation.section}.jpg`}>
+                <img
+                  src={`train_history/${industryInformation.section}.jpg`}
+                  alt='measure'
+                />
+              </ImageModal>
+            </div>
           </div>
         </>
       );
