@@ -49,48 +49,50 @@ export const Overview = () => {
   return (
     <div css={styles.overview}>
       <div css={styles.intro}>
-        <h2>Manifacture</h2>
+        <h1
+          css={css`
+            text-align: center;
+            color: #c5a872;
+          `}>
+          Two Target Sectors for Analysis
+        </h1>
+        <h2>Manifacturing</h2>
         <p>
-          Manufacturing in the United States is a vital sector. The United
-          States is the world's third largest manufacturer with a record high
-          real output in Q1 2018 of $2.00 trillion (i.e., adjusted for inflation
-          in 2009 Dollars) well above the 2007 peak before the Great Recession
-          of $1.95 trillion.The U.S. manufacturing industry employed 12.35
-          million people in December 2016 and 12.56 million in December 2017, an
-          increase of 207,000 or 1.7%. Though still a large part of the US
-          economy, in Q1 2018 manufacturing contributed less to GDP than the
-          'Finance, insurance, real estate, rental, and leasing' sector, the
-          'Government' sector, or 'Professional and business services' sector.
-        </p>
-        <p>
-          Among manufacturing industries, automobile enterprises were especially
-          suffering from COVID-19. Almost all automobile companies reported the
-          pandemic has had a negative effect on them. For example, during the
-          epidemic, Nissan’s difficulty in sourcing parts and components from
-          China, which led to the suspension of production at the Fukuoka plant
-          in Japan as well as production lines for exporting cars. Bosch's Wuhan
-          plant is still in shutdown. As Bosch relies heavily on the Chinese
-          market, it has issued a warning that the risk of supply chain rupture
-          has begun to appear.
+          A newly released survey of manufacturing leaders conducted by the
+          National Association of Manufacturers reveals the state of the
+          industry as the situation unfolds. In the survey, which was in the
+          field from Feb. 28 to March 9, 78.3% of respondents say that the
+          COVID-19 outbreak is likely to have a financial impact on their
+          businesses; 53.1% of manufacturers are anticipating a change in their
+          operations in the coming months; and 35.5% say that they are already
+          facing supply chain disruptions.
         </p>
         <div>
           <h2>Service</h2>
           <p>
-            Already in 1940 the U.S. became a so called “service economy”
-            meaning that more than half of its work force is employed in
-            producing intangibles. By 1975 two thirds of the work force was part
-            of the tertiary sector.[1] The Tertiary Sector, also known as the
-            Service Sector, has become the number one driving force of the U.S.
-            economy during the last decades. According to recent statistics
-            (2002) it nowadays accounts for 78% of the U.S. non-agricultural
-            employment and 76% of the U.S. private sector Gross Domestic Product
-            (GDP). Additionally, the U.S. is the world’s premier services
-            exporter (17% of worldwide services trade) and importer (14% of
-            worldwide services trade) at the same time.[2] These figures alone
-            necessitate a closer look. However, scientist even predict a
-            continuous increase in the relevance of this industry for the U.S.
-            Economy, expecting that almost 100% of additionally created jobs
-            during the next decade will belong to the Service Sector.[3]
+            The Tertiary Sector, also known as the Service Sector, has become
+            the number one driving force of the U.S. economy during the last
+            decades. According to recent statistics, it now accounts for 78% of
+            the U.S. non-agricultural employment and 76% of the U.S. private
+            sector Gross Domestic Product (GDP). Additionally, the U.S. is the
+            world’s premier services exporter (17% of worldwide services trade)
+            and importer (14% of worldwide services trade) at the same time.
+          </p>
+        </div>
+        <div>
+          <h2>Analysis Point</h2>
+          <p>
+            We focus our analysis scope specifically on companies of
+            manufacturing and service industries because these industries were
+            most prevalent leading industries and vulnerable to the COVID-19
+            crisis. The restrictions on on-site working environments and supply
+            chain disruptions clearly imply that there will be some shared
+            impacts and actions taken on the crisis. C-block’s higher level
+            analysis shows the following: Profound proportions of companies were
+            experiencing disruptions on business, supply chain, and employee
+            relations. Many companies implemented COVID-19 impact assessment,
+            employee travel restrictions, and seek alternative
+            suppliers/sources.
           </p>
         </div>
       </div>

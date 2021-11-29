@@ -1,8 +1,8 @@
 export const FI_MAPPING = {
   "net profit margin":
-    "measures how much net income or profit is generated as a percentage of revenue. It is the ratio of net profits to revenues for a company or business segment. Net profit margin is typically expressed as a percentage but can also be represented in decimal form. The net profit margin illustrates how much of each dollar in revenue collected by a company translates into profit",
+    "Net profit margin measures how much net income or profit is generated as a percentage of revenue. It is the ratio of net profits to revenues for a company or business segment. Net profit margin is typically expressed as a percentage but can also be represented in decimal form. The net profit margin illustrates how much of each dollar in revenue collected by a company translates into profit.",
   "gross profit margin":
-    "Gross profit margin is a metric analysts use to assess a company's financial health by calculating the amount of money left over from product sales after subtracting the cost of goods sold (COGS). Sometimes referred to as the gross margin ratio, gross profit margin is frequently expressed as a percentage of sales",
+    "Gross profit margin is a metric analysts use to assess a company's financial health by calculating the amount of money left over from product sales after subtracting the cost of goods sold (COGS). Sometimes referred to as the gross margin ratio, gross profit margin is frequently expressed as a percentage of sales.",
   "operating profit margin":
     "The operating margin measures how much profit a company makes on a dollar of sales after paying for variable costs of production, such as wages and raw materials, but before paying interest or tax. It is calculated by dividing a company’s operating income by its net sales. Higher ratios are generally better, illustrating the company is efficient in its operations and is good at turning sales into profits.",
   "return on assets":
