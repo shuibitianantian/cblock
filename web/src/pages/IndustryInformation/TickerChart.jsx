@@ -34,18 +34,22 @@ function getOption(ticks) {
   const timestamp = ticks.timestamp;
   const data = [];
   for (let i = 0; i < open.length; ++i) {
-    data.push([
-      echarts.format.formatTime(
-        "yyyy-MM-dd\nhh:mm:ss",
-        new Date(timestamp[i] * 1000)
-      ),
-      open[i].toFixed(2),
-      high[i].toFixed(2),
-      low[i].toFixed(2),
-      close[i].toFixed(2),
-      volume[i].toFixed(2),
-      getSign(data, i, open[i], close[i], 4),
-    ]);
+    try {
+      data.push([
+        echarts.format.formatTime(
+          "yyyy-MM-dd\nhh:mm:ss",
+          new Date(timestamp[i] * 1000)
+        ),
+        open[i].toFixed(2),
+        high[i].toFixed(2),
+        low[i].toFixed(2),
+        close[i].toFixed(2),
+        volume[i].toFixed(2),
+        getSign(data, i, open[i], close[i], 4),
+      ]);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const option = {
