@@ -112,22 +112,14 @@ export const Content = () => {
                 <h2>Top 10 Positive Measures</h2>
                 {fi &&
                   fi.top10.map((item, idx) => {
-                    return (
-                      <p key={idx}>
-                        {item[0]}: {parseFloat(item[1]).toFixed(3)}
-                      </p>
-                    );
+                    return <p key={idx}>{item[0]}</p>;
                   })}
               </div>
               <div>
                 <h2>Top 10 Negative Measures</h2>
                 {fi &&
                   fi.end10.map((item, idx) => {
-                    return (
-                      <p key={idx}>
-                        {item[0]}: {parseFloat(item[1]).toFixed(3)}
-                      </p>
-                    );
+                    return <p key={idx}>{item[0]}</p>;
                   })}
               </div>
             </div>
